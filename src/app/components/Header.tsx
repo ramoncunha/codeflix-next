@@ -1,61 +1,9 @@
 'use client'
-import React, { useEffect, useState } from 'react'
-import Image from 'next/image';
-
-const useScroll = () => {
-    const [isScrolled, setIsScrolled] = useState(false)
-
-    useEffect(() => {
-        const handleScroll = () => {
-            if (window.scrollY > 1) {
-                setIsScrolled(true)
-            } else {
-                setIsScrolled(false)
-            }
-        }
-
-        window.addEventListener('scroll', handleScroll)
-
-        return () => {
-            window.removeEventListener('scroll', handleScroll)
-        }
-    }, [])
-
-    return isScrolled
-}
-
-const Logo = () => (
-    <Image
-    src='/logo.svg'
-    alt='logo'
-    width={90}
-    height={90}
-    className='cursor-pointer'
-    />
-)
-
-const NavLinks = () => (
-    <nav>
-        <ul className='hidden md:flex md:space-x-4'>
-            <li>Home</li>
-            <li>TV Shows</li>
-            <li>Movies</li>
-            <li>Latest</li>
-        </ul>
-    </nav>
-)
-
-const UserProfile = () => (
-    <div className='flex items-center space-x-4'>
-        <p className='hidden cursor-not-allowed lg:inline'>Kids</p>
-        <Image 
-        src='/profile.png'
-        alt='profile'
-        width={40}
-        height={40}
-        className='cursor-pointer rounded'/>
-    </div>
-)
+import React from 'react'
+import { UserProfile } from './UserProfile';
+import { Logo } from './Logo';
+import { NavLinks } from './NavLinks';
+import { useScroll } from '../hooks/useScroll';
 
 export default function Header() {
     const isScrolled = useScroll()
