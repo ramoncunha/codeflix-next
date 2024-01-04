@@ -36,7 +36,25 @@ export default function Home() {
             <InformationCircleIcon className='h-6'/> More Info
           </button>
         </div>
-        
+        <div className='flex-col space-y-4'>
+          <div className='flex space-x-4 overflow-x-scroll'>
+            
+              {[1, 2, 3, 4, 5].map((index) => (
+                <div key={index} className='group h-28 min-w-[200px] relative
+                hover:scale-110 transition transform duration-200 ease-in
+                '>
+                  <Image 
+                    src={`/item_${index}.png`}
+                    alt="Movie"
+                    fill={true}
+                    className='rounded'
+                  />
+                </div>
+              ))}
+            
+          </div>
+        </div>
+
       </main>
     </div>
   )
