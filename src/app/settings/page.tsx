@@ -1,11 +1,15 @@
 import React from "react"
+import { getAppSettings } from "../lib/settings";
 
-function Settings() {
+async function Settings() {
+
+  const { theme, language } = await getAppSettings()
   return (
-    <div>
-      
+    <div className="border border-dashed">
+      <p>Theme: {theme}</p>
+      <p>Language: {language}</p>
     </div>
   )
 }
 
-export default Settings;
+export default Settings;  
